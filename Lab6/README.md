@@ -18,3 +18,4 @@
 ## Mostenire (adaugare fata de laboratorul 3)
 - o clasa poate sa mosteneasca o singura clasa in acelasi timp, din cauza ambiguitatii, in sensul ca 2 clase care nu au legature intre ele pot avea metode cu aceeasi semnatura, insa cu functionalitati diferite, iar clasa ce le-ar mosteni pe ambele in acelasi timp nu ar stii pe care le-ar alege
 - o clasa poate sa mosteneasca o alta clasa si sa implementeze interfete in acelasi timp
+- o clasa final nu poate fi extinsa de alte clase, iar o metoda final nu poate fi suprascrisa in clasele mostenitoare
