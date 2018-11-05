@@ -233,7 +233,9 @@ class StudentComparator2 implements Comparator<Student> {
 }
 
 
-// Comparable -> 
+// Comparable -> un obiect ce este o instanta a unei clase ce implementeaza Comparable este comparabila (sesizati cu limba in obraz) cu un alt obiect care reprezinta o instanta a aceleiasi clase
+// precum Comparator, este folosit drept criteriu de comparare pentru sortare, insa diferenta fata de Comparator este ca la sortarea cu Collections.sort nu mai e nevoie sa
+// dam ca parametru un criteriu de comparare (adica un Comparator), sortarea se face dupa criteriul specificat in metoda compareTo
 
 // treaba cu tipizarea interfetei e fix ca mai sus
 class PornStar implements Comparable {
