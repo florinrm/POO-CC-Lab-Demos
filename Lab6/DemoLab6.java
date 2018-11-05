@@ -1,5 +1,5 @@
 import java.*;
-
+import java.util.*;
 
 interface A {
 
@@ -169,7 +169,109 @@ class Ciobanu extends Decebal {
     // vom avea eroare daca facem asa 
 } */
 
-// TODO Comparable si Comparator
+// ***********************************************************************
+// Comparator vs Comparable - 2 interfete predefinite in Java, folosite pentru compararea a 2 obiecte, in principiu pentru sortarea de colectii
+
+/* 
+* Comparator - o clasa ce implementeaza interfata Comparator este folosita ca un instrument de comparare a 2 obiecte, adica cand vrem sa dorim
+* sortarea a unei colectii in functie de un criteriu de comparare (de exemplu sortarea unei liste de studenti in ordinea crescatoare a mediei),
+* vom da ca parametru la metoda Collections.sort si un obiect care reprezinta instanta clasei care implementeaza Comparator
+*/
+
+class Student {
+    private double medie;
+    private String nume, prenume;
+
+    public Student (String nume, String prenume, double medie) {
+        this.medie = medie;
+        this.nume = nume;
+        this.prenume = prenume;
+    }
+
+    public String toString() {
+        return "Student: " + prenume + " " + nume + " -> " + medie;
+    }
+
+    public double getMedie() {
+        return medie;
+    }
+
+    public String getNume() {
+        return nume;
+    }
+
+    public String getPrenume() {
+        return prenume;
+    }
+}
+
+// o clasa ce compara studentii intre ei -> criteriu de sortare
+// + aici avem warning cu raw types (genericitate)
+class StudentComparator implements Comparator {
+    @Override // e esential sa specificam Override
+    public int compare (Object o1, Object o2) { // -> nu am tipizat Comparator aici -> compare primeste Object ca parametri by default
+        Student s1 = (Student) o1;
+        Student s2 = (Student) o2;
+        // daca au mediile egale + e o varianta ok de a compara numere double in Java -> o recomand pe asta
+        if (Double.compare(s1.getMedie(), s2.getMedie()) == 0) {
+            return s1.getNume().compareTo(s2.getNume()); // ordonam crescator dupa nume -> descrescator era s2...compareTo(s1...)
+        }
+        return Double.compare(s1.getMedie(), s2.getMedie()); // ordonam crescator dupa medie
+    } // compare -> compara 2 obiecte - returneaza 0 (egale), > / < 0 (crescator / descrescator)
+}
+
+// tipizam Comparator cu Student -> compare primeste Student ca parametri
+class StudentComparator2 implements Comparator<Student> {
+    @Override // e esential sa specificam Override
+    public int compare (Student s1, Student s2) {
+        // daca au mediile egale + e o varianta ok de a compara numere double in Java -> o recomand pe asta
+        if (Double.compare(s1.getMedie(), s2.getMedie()) == 0) {
+            return s1.getNume().compareTo(s2.getNume()); // ordonam descrescator dupa nume
+        }
+        return Double.compare(s2.getMedie(), s1.getMedie()); // ordonam descrescator dupa medie
+    }
+}
+
+
+// Comparable -> 
+
+// treaba cu tipizarea interfetei e fix ca mai sus
+class PornStar implements Comparable {
+    private String nume, prenume;
+    private int varsta;
+
+    public PornStar (String nume, String prenume, int varsta) {
+        this.varsta = varsta;
+        this.nume = nume;
+        this.prenume = prenume;
+    }
+
+    private String getNume() {
+        return nume;
+    }
+
+    private String getPrenume() {
+        return prenume;
+    }
+
+    public int getVarsta() {
+        return varsta;
+    }
+
+    @Override
+    public int compareTo (Object obj) {
+        PornStar porn = (PornStar) obj;
+        // daca au varsta egala - sortam crescator dupa nume
+        if (this.getVarsta() == porn.getVarsta())
+            return this.getNume().compareTo(porn.getNume());
+        return this.getVarsta() - porn.getVarsta(); // crescator dupa varsta
+    }
+
+    public String toString () {
+        return "Star porno: " + prenume + " " + nume + " -> " + varsta + " de ani";
+    }
+}
+
 
 public class DemoLab6 {
     public static void main (String[] main) {
@@ -203,5 +305,43 @@ public class DemoLab6 {
         Cat pussy = new Cat("Tibi <3", "Constanta");
 
         Human jmek = new Human(pussy, javra);
+
+        // Comparator
+        ArrayList<Student> list = new ArrayList<>(); // ArrayList este o colectie, vom invata despre colectii in labul 7
+
+        // inainte de sortare
+        list.add(new Student("Mihu", "Andrei", 8.50));
+        list.add(new Student("Raducanu", "Constantin", 9.20));
+        list.add(new Student("Mihalache", "Florin", 8.50));
+        System.out.println(list);
+
+        StudentComparator comp = new StudentComparator(); // criterii de comparare
+        StudentComparator2 comp2 = new StudentComparator2();
+
+        Collections.sort(list, comp); // sortam crescator dupa medie
+        // sortare crescatoare
+        System.out.println(list);
+
+        Collections.sort(list, comp2); // sortam descrescator dupa medie
+        // sortare descrescatoare
+        System.out.println(list);
+
+        // asadar, Comparator il folosim daca pur si simplu sa ordonam o colectie la un moment dat dupa un anumit criteriu
+
+        // Comparable
+        // hai sa fim patrioti :)
+        ArrayList<PornStar> porn = new ArrayList<>();
+        porn.add(new PornStar("Kent", "Nelly", 21));
+        porn.add(new PornStar("Romain", "Sandra", 40));
+        porn.add(new PornStar("Mocanu", "Madalina", 21)); // oarecum porn star -> videochat mai degraba (a fost cu mine la liceu)
+        porn.add(new PornStar("Bunny", "Sweet", 25)); // VPN pe PH ;)
+        porn.add(new PornStar("Plugaru", "Alina", 30));
+        // neordonat
+        System.out.println(porn);
+
+        Collections.sort(porn); // deja avem criteriul de sortare
+        // ordonat
+        System.out.println(porn);
+        // enjoy fapping, u bastards
     }
 }
