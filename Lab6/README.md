@@ -19,3 +19,13 @@
 - o clasa poate sa mosteneasca o singura clasa in acelasi timp, din cauza ambiguitatii, in sensul ca 2 clase care nu au legature intre ele pot avea metode cu aceeasi semnatura, insa cu functionalitati diferite, iar clasa ce le-ar mosteni pe ambele in acelasi timp nu ar stii pe care le-ar alege
 - o clasa poate sa mosteneasca o alta clasa si sa implementeze interfete in acelasi timp
 - o clasa final nu poate fi extinsa de alte clase, iar o metoda final nu poate fi suprascrisa in clasele mostenitoare
+
+## Comparable versus Comparator
+- ambele sunt interfete folosite pentru comparare, de obicei pentru sortare
+### Comparable
+- metoda compareTo (Object obj) -> comparare this vs obj
+- clasa a carei obiecte (mda, suna un pic naspa) implementeaza Comparable (adica un obiect e comparabil cu altul) si se sorteaza automat cu Collections.sort dupa criteriul din compareTo-ul din clasa care implementeaza Comparable
+### Comparator
+- metoda compare (Object obj1, Object obj2) - comparare obj1 vs obj2
+- avem o clasa care implementeaza Comparator si e folosita ca criteriu de comparare la sortare (dam ca parametru la Collections.sort un obiect care e o instanta acelei clase)
+
