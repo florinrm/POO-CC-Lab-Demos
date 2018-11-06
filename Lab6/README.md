@@ -31,13 +31,13 @@
 
 ## Upcasting vs downcasting
 - upcasting - castarea la clasa parinte, se poate face implicit (adica fara sa specifici numele clase la castare), de exemplu:
-```
+```java
 Animal an = new Animal()
 Dog doggy = new Dog();
 an = doggy; // upcasting implicit, explicit -> (Animal) doggy 
 ```
 - downcasting - castarea la clasa copil, aici lucrurile sunt mai naspa, caci pot aparea exceptii legate de castare (ClassCastException), aici este nevoie de o verificare cu instanceof
-```
+```java
 // varianta unsafe - nerecomandata
 Animal anim = new Cat();
 Cat cat = (Cat) anim; 
