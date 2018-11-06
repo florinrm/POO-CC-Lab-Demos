@@ -29,3 +29,21 @@
 - metoda compare (Object obj1, Object obj2) - comparare obj1 vs obj2
 - avem o clasa care implementeaza Comparator si e folosita ca criteriu de comparare la sortare (dam ca parametru la Collections.sort un obiect care e o instanta acelei clase)
 
+## Upcasting vs downcasting
+- upcasting - castarea la clasa parinte, se poate face implicit (adica fara sa specifici numele clase la castare), de exemplu:
+```
+Animal an = new Animal()
+Dog doggy = new Dog();
+an = doggy; // upcasting implicit, explicit -> (Animal) doggy 
+```
+- downcasting - castarea la clasa copil, aici lucrurile sunt mai naspa, caci pot aparea exceptii legate de castare (ClassCastException), aici este nevoie de o verificare cu instanceof
+```
+// varianta unsafe - nerecomandata
+Animal anim = new Cat();
+Cat cat = (Cat) anim; 
+
+// varianta safe - recomandata
+if (anim instanceof Cat) {
+    Cat cat = (Cat) anim;
+}
+    
