@@ -9,6 +9,35 @@ class SetComparator implements Comparator<Integer> {
     }
 }
 
+class Student {
+    public String nume, prenume;
+    public Student (String nume, String prenume) {
+        this.nume = nume;
+        this.prenume = prenume;
+    }
+
+    // daca 2 obiecte sunt egale
+    @Override
+    public boolean equals (Object std) {
+        if (!(std instanceof Student))
+            return false; // daca nu este instanta a clasei Student -> false, nu-s egale
+        Student st = (Student) std;
+        return nume.equals(st.nume) && prenume.equals(st.prenume);
+    }
+
+    // hashing - pentru dictionare
+    @Override
+    public int hashCode() {
+        // fac la vrajeala aici, asa pentru demo
+        int sum = 0;
+        for (int i = 0; i < nume.length(); ++i)
+            sum += nume.charAt(i);
+            for (int i = 0; i < prenume.length(); ++i)
+            sum += prenume.charAt(i);
+        return sum << 3;
+    }
+}
+
 public class DemoLab7 {
     public static void main (String[] args) {
         // acum precizam explicit tipul de date din ArrayList si asa vom face la celelalte colectii
@@ -106,6 +135,7 @@ public class DemoLab7 {
         }
         System.out.print("\n\nHashSet\n");
 
+        // set bazat pe hash-uri, insertia si stergerea sunt in timp constant
         HashSet<Integer> set3 = new HashSet<>();
         Iterator<Integer> set3Iter = set3.iterator(); // daca facem aici nu vom aveam nimic in iterator aka inainte sa bagam in colectie
         set3.add(1);
@@ -118,7 +148,63 @@ public class DemoLab7 {
         while (set3Iter.hasNext()) {
             System.out.print(set3Iter.next() + " ");
         }
+        System.out.println("\n\nHashtable\n");
 
+        // dictionar / tabela de dispersie, in cazul nostru cu cheia de tip String si valoarea de tip Integer
+        Hashtable<String, Integer> hash1 = new Hashtable<>();
+        hash1.put("Malone", 69);
+        hash1.put("este", 420);
+        hash1.put("BO$$", 69);
+        Integer elem = hash1.get("BO$$");
+        System.out.println("Hashtable - value of BO$$: " + elem);
+        Iterator<String> hashIter = hash1.keySet().iterator(); // keySet returneaza un set de chei din dictionar
+        while (hashIter.hasNext()) {
+            String key = hashIter.next();
+            System.out.println("Key: " + key + " Value: " + hash1.get(key));
+        }
 
+        System.out.println("\n\nHashMap\n");
+
+        // spre deosebire de Hashtable, HashMap permite sa ai o cheie null si valori nule
+        HashMap<String, Integer> hash2 = new HashMap<>();
+        hash2.put("Malone", 69);
+        hash2.put("este", 420);
+        hash2.put("BO$$", 69);
+        elem = hash2.get("BO$$");
+        System.out.println("HashMap - value of BO$$: " + elem);
+        Iterator<String> hashIter2 = hash2.keySet().iterator(); // keySet returneaza un set de chei din dictionar
+        while (hashIter2.hasNext()) {
+            String key = hashIter2.next();
+            System.out.println("Key: " + key + " Value: " + hash2.get(key));
+        }
+
+        System.out.println("\n\nTreeMap\n");
+
+        // dictionar / tabela de dispersie, in cazul nostru cu cheia de tip String si valoarea de tip Integer
+        TreeMap<String, Integer> hash3 = new TreeMap<>();
+        hash3.put("Malone", 69);
+        hash3.put("este", 420);
+        hash3.put("BO$$", 69);
+        elem = hash3.get("BO$$");
+        System.out.println("TreeMap - value of BO$$: " + elem);
+        Iterator<String> hashIter3 = hash3.keySet().iterator(); // keySet returneaza un set de chei din dictionar
+        while (hashIter3.hasNext()) {
+            String key = hashIter3.next();
+            System.out.println("Key: " + key + " Value: " + hash3.get(key));
+        }
+        System.out.println("\n\nLinkedHashMap\n");
+
+        // dictionar / tabela de dispersie, in cazul nostru cu cheia de tip String si valoarea de tip Integer
+        LinkedHashMap<String, Integer> hash4 = new LinkedHashMap<>();
+        hash4.put("Malone", 69);
+        hash4.put("este", 420);
+        hash4.put("BO$$", 69);
+        elem = hash4.get("BO$$");
+        System.out.println("LinkedHashMap - value of BO$$: " + elem);
+        Iterator<String> hashIter4 = hash4.keySet().iterator(); // keySet returneaza un set de chei din dictionar
+        while (hashIter4.hasNext()) {
+            String key = hashIter4.next();
+            System.out.println("Key: " + key + " Value: " + hash4.get(key));
+        }
     }
 }
