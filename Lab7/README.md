@@ -18,11 +18,15 @@
 ### [LinkedList](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
 - Implementarea unei liste dublu-inlantuite -> poate fi folosita ca o coada, caci implementeaza Queue
 ### Stack
+- Implementarea stivei
 ### HashSet
+- Multime, operatiile elementare (add, remove) sunt in 0(1), datorita hash-uirii
 ### TreeSet
+- Multime, elementele sunt ordonate default crescator (adica daca nu avem deja un criteriu de comparare)
 ### Hashtable
 ### HashMap
 ### TreeMap
 
 ## Iteratori
 - Iteratorii reprezinta o modalitate de a itera (de a parcurge) colectiile
+- Avem trei tipuri de iteratori: Iterator, ListIterator, Enumeration
