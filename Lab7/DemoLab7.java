@@ -178,6 +178,12 @@ public class DemoLab7 {
             System.out.println("Key: " + key + " Value: " + hash2.get(key));
         }
 
+        // o alta modalitate de a parcurge un Map
+        Set<Map.Entry<String, Integer>> entries = hash2.entrySet(); // avem o multime de intrari de tip cheie-valoare
+        for (Map.Entry<String, Integer> entry: entries) {
+            System.out.println("Cheie: " + entry.getKey() + " Valoare: " + entry.getValue());
+        }
+
         System.out.println("\n\nTreeMap\n");
 
         // dictionar / tabela de dispersie, in cazul nostru cu cheia de tip String si valoarea de tip Integer
