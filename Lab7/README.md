@@ -23,16 +23,51 @@
 - Multime, operatiile elementare (add, remove) sunt in O(1), datorita hash-uirii
 ### [TreeSet](https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html)
 - Multime, elementele sunt ordonate default crescator (adica daca nu avem deja un criteriu de comparare)
-### Hashtable
+### [Hashtable](https://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html)
 - Dictionar / tabela de dispersie - avem voie cu o cheie null si cu valori null aici
-### HashMap
+### [HashMap](https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html)
 - Dictionar - fara cheie null si difera de Hashtable la sincronizare (iar APD) -> [lectura](https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
-### TreeMap
+### [TreeMap](https://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html)
 - Dictionar - cheile sunt sortate (default in ordine crescatoare, daca nu -> ne trebuie un Comparator)
-### LinkedHashMap
+### [LinkedHashMap](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedHashMap.html)
 - Dictionar - cheile se pastreaza in ordinea insertiei - lucru garantat [detalii](https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
 
 ## Iteratori
 - Iteratorii reprezinta o modalitate de a itera (de a parcurge) colectiile
 - Avem trei tipuri de iteratori: Iterator, ListIterator, Enumeration
 - Colectiile au metode ce returneaza un iterator (aka un fel de cursor pentru parcurgerea colectiei) - iar documentatie
+- [Lectura](https://www.geeksforgeeks.org/iterators-in-java/)
+
+## equals si hashCode
+- equals - metoda din clasa [Object](https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html) (clasa parinte pentru toate clasele), dam override in cadrul unor clase realizate pentru noi, pentru a face posibila compararea a doua obiecte, pentru a vedea daca acestea sunt la fel (si nu din punctul de vedere al referintei, ci ca valoare in acest caz)
+- hashCode - metoda din Object, ce calculeaza un hash bazat pe obiect - folosit pentru dictionare
+```java
+class Student {
+    public String nume, prenume;
+    public Student (String nume, String prenume) {
+        this.nume = nume;
+        this.prenume = prenume;
+    }
+
+    // daca 2 obiecte sunt egale
+    @Override
+    public boolean equals (Object std) {
+        if (!(std instanceof Student))
+            return false; // daca nu este instanta a clasei Student -> false, nu-s egale
+        Student st = (Student) std;
+        return nume.equals(st.nume) && prenume.equals(st.prenume);
+    }
+
+    // hashing - pentru dictionare
+    @Override
+    public int hashCode() {
+        // fac la vrajeala aici, asa pentru demo
+        int sum = 0;
+        for (int i = 0; i < nume.size(); ++i)
+            sum += nume.charAt(i);
+            for (int i = 0; i < prenume.size(); ++i)
+            sum += prenume.charAt(i);
+        return sum << 3;
+    }
+}
+```
