@@ -20,12 +20,17 @@
 ### [Stack](https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html)
 - Implementarea stivei
 ### [HashSet](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html)
-- Multime, operatiile elementare (add, remove) sunt in 0(1), datorita hash-uirii
+- Multime, operatiile elementare (add, remove) sunt in O(1), datorita hash-uirii
 ### [TreeSet](https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html)
 - Multime, elementele sunt ordonate default crescator (adica daca nu avem deja un criteriu de comparare)
 ### Hashtable
+- Dictionar / tabela de dispersie - avem voie cu o cheie null si cu valori null aici
 ### HashMap
+- Dictionar - fara cheie null si difera de Hashtable la sincronizare (iar APD) -> [lectura](https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
 ### TreeMap
+- Dictionar - cheile sunt sortate (default in ordine crescatoare, daca nu -> ne trebuie un Comparator)
+### LinkedHashMap
+- Dictionar - cheile se pastreaza in ordinea insertiei - lucru garantat [detalii](https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
 
 ## Iteratori
 - Iteratorii reprezinta o modalitate de a itera (de a parcurge) colectiile
