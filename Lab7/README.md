@@ -15,7 +15,8 @@
 ### [ArrayList](https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html)
 ### [Vector](https://docs.oracle.com/javase/7/docs/api/java/util/Vector.html)
 - Foarte similar la comportament cu ArrayList, diferentele sunt legate de sincronizare (APD anul 3) si de resize cand se depaseste marimea maxima alocata - [lectura suplimentara](https://stackoverflow.com/questions/2986296/what-are-the-differences-between-arraylist-and-vector)
-### LinkedList
+### [LinkedList](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
+- Implementarea unei liste dublu-inlantuite -> poate fi folosita ca o coada, caci implementeaza Queue
 ### Stack
 ### HashSet
 ### TreeSet
