@@ -63,9 +63,9 @@ class Student {
     public int hashCode() {
         // fac la vrajeala aici, asa pentru demo
         int sum = 0;
-        for (int i = 0; i < nume.size(); ++i)
+        for (int i = 0; i < nume.length(); ++i)
             sum += nume.charAt(i);
-            for (int i = 0; i < prenume.size(); ++i)
+            for (int i = 0; i < prenume.length(); ++i)
             sum += prenume.charAt(i);
         return sum << 3;
     }
