@@ -17,11 +17,11 @@
 - Foarte similar la comportament cu ArrayList, diferentele sunt legate de sincronizare (APD anul 3) si de resize cand se depaseste marimea maxima alocata - [lectura suplimentara](https://stackoverflow.com/questions/2986296/what-are-the-differences-between-arraylist-and-vector)
 ### [LinkedList](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
 - Implementarea unei liste dublu-inlantuite -> poate fi folosita ca o coada, caci implementeaza Queue
-### Stack
+### [Stack](https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html)
 - Implementarea stivei
-### HashSet
+### [HashSet](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html)
 - Multime, operatiile elementare (add, remove) sunt in 0(1), datorita hash-uirii
-### TreeSet
+### [TreeSet](https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html)
 - Multime, elementele sunt ordonate default crescator (adica daca nu avem deja un criteriu de comparare)
 ### Hashtable
 ### HashMap
@@ -30,3 +30,4 @@
 ## Iteratori
 - Iteratorii reprezinta o modalitate de a itera (de a parcurge) colectiile
 - Avem trei tipuri de iteratori: Iterator, ListIterator, Enumeration
+- Colectiile au metode ce returneaza un iterator (aka un fel de cursor pentru parcurgerea colectiei) - iar documentatie
