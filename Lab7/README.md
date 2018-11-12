@@ -8,7 +8,7 @@
 - Interfata Collection este interfata cea mai generalizata -> avem subinterfete care descriu colectii sortate (sau nu) sau cu elemente unice (sau nu) - [ceva lectura suplimentara](https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html)
 - Interfata List extinde Collection si descrie o lista -> colectii ce implementeaza List: ArrayList, Vector, LinkedList, Stack (extinde Vector)
 - Interfata Set extinde Collection si descrie o multime (elemente unice) -> colectii ce implementeaza Set: TreeSet, HashSet, LinkedHashSet
-- Interfata Map este o interfata generalizata, independenta de Collection, ce descrie un dictionar, cu intrari de tip cheie-valoare [detalii](https://docs.oracle.com/javase/7/docs/api/java/util/Map.html)
+- Interfata Map este o interfata generalizata, independenta de Collection, ce descrie un dictionar, cu intrari de tip cheie-valoare ([detalii](https://docs.oracle.com/javase/7/docs/api/java/util/Map.html))
 
 ## Clase de colectii
 ### [ArrayList](https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html)
