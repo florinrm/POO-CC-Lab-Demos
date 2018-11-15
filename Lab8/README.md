@@ -7,6 +7,20 @@
 - Clase anonime -> clase fara nume ce reprezinta extinderea unei clase sau implementarea unei interfete
 - Clase locale -> clase realizate in interiorul metodelor
 ## Clasa interna normala
+```java
+  class OuterClass {
+    class InnerClass {
+      //...
+    }
+  }
+```
 ## Clasa interna statica
+```java
+  class OuterClass {
+    static class InnerClass {
+      //...
+    }
+  }
+```
 ## Clasa anonima
 ## Clasa locala
