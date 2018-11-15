@@ -23,4 +23,17 @@
   }
 ```
 ## Clasa anonima
+```java
+  // vrem sa implementam interfata Comparator folosind clase anonime
+  Comparator<String> comp = new Comparator<>() {
+      @Override
+      public int compare (String s1, String s2) {
+          return s2.compareTo(s1);
+      }
+  };
+```
+- Utilizare: adaugare / modificare / implementare de metode putine (2 - 3) in clase sau interfete, adica o mostenire, insa mai minimalista
+- Lectura suplimentara legata de lambda expresii (mai multe detalii la [PP](http://elf.cs.pub.ro/pp/)):
+1) https://hashnode.com/post/anonymous-functions-in-java-explained-cj1opkbj8000sml53bsq6r6cj
+2) https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
 ## Clasa locala
