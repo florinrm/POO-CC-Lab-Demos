@@ -33,13 +33,13 @@
   };
   // dorim sa se adauge doar numere pare intr-un Vector de numere intregi
   Vector<Integer> vect = new Vector<Integer>(){
-			@Override
-			public boolean add (Integer e) {
-				if (e % 2 == 0)
-					return super.add(e);
-				return false;
-			}
-	};
+	@Override
+	public boolean add (Integer e) {
+		if (e % 2 == 0)
+			return super.add(e);
+		return false;
+	}
+   };
 ```
 - Utilizare: adaugare / modificare / implementare de metode putine (2 - 3) in clase sau interfete, adica o mostenire, insa mai minimalista
 - Lectura suplimentara legata de lambda expresii (mai multe detalii la [PP](http://elf.cs.pub.ro/pp/)):
