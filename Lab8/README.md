@@ -16,7 +16,7 @@
 ```
 ## Clasa interna statica
 ```java
-  class OuterClass {
+class OuterClass {
 	public int x;
 	static class InnerClass {
 		public int x, y;
@@ -25,7 +25,7 @@
 			this.y = y;
 		}
     }
-  }
+}
 ```
 ## Clasa anonima
 ```java
