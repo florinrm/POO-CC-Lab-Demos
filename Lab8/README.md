@@ -17,8 +17,13 @@
 ## Clasa interna statica
 ```java
   class OuterClass {
-    static class InnerClass {
-      //...
+		public int x;
+		static class InnerClass {
+			public int x, y;
+			public InnerClass (int x, int y) {
+				Outer.this.x = x; // face referire la x-ul in InnerClass
+				this.y = y;
+			}
     }
   }
 ```
