@@ -24,10 +24,14 @@
   Outer out = new Outer(420);
   Outer.InnerClass in = out.new InnerClass(69, 69); // instantierea
 ```
+- Utilizare: noi folosim clase interne (fie statice sau non-statice) daca le folosim strict in clasa mare in care se afla acestea (mai mult de design si principii POO)
 ## Clasa interna statica
 ```java
 class OuterClass {
     public int x;
+    public OuterClass (int x) {
+    	this.x = x;
+    }
     static class InnerClass {
 	public int x, y;
 	public InnerClass (int x, int y) {
@@ -36,6 +40,8 @@ class OuterClass {
 	}
     }
 }
+Outer out = new Outer(420);
+Outer.StaticInnerClass in3 = new Outer.StaticInnerClass(69, 69);
 ```
 ## Clasa anonima
 ```java
@@ -61,3 +67,26 @@ class OuterClass {
 1) https://hashnode.com/post/anonymous-functions-in-java-explained-cj1opkbj8000sml53bsq6r6cj
 2) https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
 ## Clasa locala
+```java
+public void someStuff() {
+        // clasa locala -> nu poate fi abstracta sau finala
+        class Student {
+            public String name, surname;
+            public Student (String name, String surname) {
+                this.name = name;
+                this.surname = surname;
+            }
+
+            @Override
+            public String toString () {
+                return name + " " + surname;
+            }
+        }
+
+        Student first = new Student ("Bogdanel", "Poponel");
+        Student second = new Student ("Malonel", "Frumushel");
+        System.out.println(first);
+        System.out.println(second);
+    }
+```
+- Utilizare: folosirea doar la nivelul metodei respective si nu in alte metode a clasei locale
