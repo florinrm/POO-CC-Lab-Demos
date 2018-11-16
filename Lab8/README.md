@@ -9,10 +9,20 @@
 ## Clasa interna normala
 ```java
   class OuterClass {
+    public int x;
+    public OuterClass (int x) {
+    	this.x = x;
+    }
     class InnerClass {
-      //...
+	public int x, y;
+	public InnerClass (int x, int y) {
+		Outer.this.x = x; // face referire la x-ul in InnerClass
+		this.y = y;
+	}
     }
   }
+  Outer out = new Outer(420);
+  Outer.InnerClass in = out.new InnerClass(69, 69); // instantierea
 ```
 ## Clasa interna statica
 ```java
