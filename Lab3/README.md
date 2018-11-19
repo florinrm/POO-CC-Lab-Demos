@@ -6,3 +6,8 @@
 2) Clasele au constructori si metode (functii adica) si modificatori de acces (`public`, `private` si `protected`), in timp ce structurile din C nu au (insa cele din C++ [au](https://www.geeksforgeeks.org/difference-c-structures-c-structures/))
 
 ## Despre clase (mai in detaliu)
+```java
+class Politician {
+  
+}
+```
