@@ -15,9 +15,9 @@ int value = (Integer) vect.get(0); // ca sa luam 69 hihi
 ```java
 /*
 ASA DA
+*/
 Vector<Integer> vect = new Vector<Integer>(); // sau new Vector<>(); -> acum stim ca avem int-uri in Vector
 vect.add(69);
 int value = vect.get(0); // ca sa luam 69 hihi
-*/
 ```
 ## Wildcards
