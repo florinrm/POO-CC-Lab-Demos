@@ -15,3 +15,18 @@ str = "sexy bubu"; // merge
 str.chatAt(0) = 'f'; // nu o sa mearga
 ```
 - Daca vrem totusi sa modificam caractere din string-uri, folosim StringBuilder / StringBuffer [(seamana foarte mult ca functionalitate)](https://stackoverflow.com/questions/355089/difference-between-stringbuilder-and-stringbuffer) sau char[] -> detalii [aici](https://stackoverflow.com/questions/11588916/java-replace-character-at-specific-position-of-string)
+
+## Comparare String-uri
+- Pentru a compara String-uri, folosim equals (egalitate), compare sau compareTo (pentru ordonare)
+```java
+String a = "TS";
+String b = "EEA";
+if (a == b) // compara referinta
+  System.out.println("Same reference");
+if (a.equals(b))
+  System.out.println("Strings are same");
+if (a.compareTo(b) > 0)
+  System.out.println("a is greater than b");
+else
+  System.out.println("b is greater than a");
+```
