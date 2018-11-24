@@ -36,6 +36,9 @@ class SistemeLiniareNetede {
         } catch (MyException e) {
           // am prins exceptia
           e.printStackTrace(); // e ok sa scriem de regula chestia asta in catch
+        } catch (Exception e) {
+          // daca este sa prindem mai multe exceptii, trebuie sa incepem cu cea mai particulara pana la cea mai generala
+          e.printStackTrace();
         } finally {
           // blocul de cod de aici se executa indiferent daca exceptia a fost prinsa sau nu
           System.out.println("Meh");
