@@ -98,7 +98,29 @@ public class DemoLab9 {
         System.out.println("");
     }
 
-    // metode generice - TODO
+    // metode generice 
+    private static <T> void doStuff1 (T[] obj, List<T> list) {
+        for (T lel: obj)
+            list.add(lel);
+    }
+
+    private static void doStuff2 (Object[] obj, List<?> list) {
+        for (Object lel: obj) {
+            // eroare de tip incompatible types: Object cannot be converted to CAP#1
+            //list.add(lel);
+        }
+    }
+
+    // ca sa evitam eroarea de mai sus, folosim bounded wildcards
+    private static <T> void doStuff3 (List<? extends T> orig, List<T> list) {
+        for (T lel: orig)
+            list.add(lel);
+    }
+
+    private static <T extends Number> void doStuff4 (List<T> orig, List<T> list) {
+        for (T lel: orig)
+            list.add(lel);
+    }
 
     public static void main (String[] args) {
         /* ASA NU */
