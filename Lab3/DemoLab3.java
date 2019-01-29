@@ -35,8 +35,6 @@ class Politician {
 		/* nu avem conflict de nume => nu e musai sa
 		* folosim this pentru a face referire la obiect
 		* putem sa folosim this in acest caz, insa nu e obligatoriu
-		* ca sa o faceti pe proasta aia de profa fericita, in acest caz
-		* nu folositi deloc this, ca taie ca vaca, chiar daca e corect
 		*/
 		this.party = party;
 	}
